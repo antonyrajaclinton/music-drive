@@ -1,6 +1,9 @@
 import { createBrowserRouter, RouterProvider } from "react-router";
 
 import { Suspense, lazy } from "react";
+import { ThemeProvider } from "@mui/material";
+
+import MyTheme from "../config/MyTheme";
 
 const SignIn = lazy(() => import('../pages/auth/SignIn'));
 
@@ -25,7 +28,10 @@ const router = createBrowserRouter([
 const MyRoutes = () => {
 
     return (
-        <RouterProvider router={router} />
+        <ThemeProvider theme={MyTheme}>
+             <RouterProvider router={router} />
+        </ThemeProvider>
+       
     )
 }
 
